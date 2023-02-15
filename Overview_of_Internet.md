@@ -19,6 +19,12 @@ The internet is simply a huge network of networks
 
 ![image](https://user-images.githubusercontent.com/93304067/218912926-192f8498-b04f-4474-8cbc-b316c0de78e6.png)
 
+## Protocals ##
+- Different protocols were developed to address different aspects of network communication.
+  - e.g HTTP vs TCP
+- Different protocols were developed to address the same aspect of network communication but differently for a specific use case.
+  - e.g TCP vs UDP
+
 ## Internet layers ##
 1. **Application Layer**: the layer that interacts with the user or application. Protocols at this layer include HTTP, FTP, and SMTP.
 2. **Presentation Layer**: responsible for transforming data into a format that the application layer can use. Protocols at this layer include SSL and TLS.
