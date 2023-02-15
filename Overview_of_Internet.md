@@ -1,3 +1,24 @@
+## Networks ##
+The simplest network is two devices connected in a way in which they can exchange data
+- The simplest way to do this would be with a LAN cable
+
+### Local Area Network (LAN) ###
+This can be multiple computers conencted via network cables, and perhaps a network hub or switch
+- The above "simple" network would also be considered local
+- Home networks form a local network, but nowadays, typically the connection between the devices is faciliated over wi-fi (WLAN)
+- These connects are limited to those connected to the local switch or hub, which imposes geographic restrictions for exchange of data
+
+### Inter-connected Networks ###
+To communicate between networks, we need a **router** 
+- Routers are network devices that can route network traffic to other networks.
+- For LAN, they act as gateways into and out of the network
+
+## Internet ##
+The internet is simply a huge network of networks
+- There are systems of routers between each network that faciliate network traffic
+
+![image](https://user-images.githubusercontent.com/93304067/218912926-192f8498-b04f-4474-8cbc-b316c0de78e6.png)
+
 ## Internet layers ##
 1. **Application Layer**: the layer that interacts with the user or application. Protocols at this layer include HTTP, FTP, and SMTP.
 2. **Presentation Layer**: responsible for transforming data into a format that the application layer can use. Protocols at this layer include SSL and TLS.
