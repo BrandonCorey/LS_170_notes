@@ -13,9 +13,11 @@ an amount or block of data transferred over a network
 - At the Link/ Data Link layer, for example, a PDU is known as a frame
 - At the Internet/ Network layer it is known as a packet
 - At the Transport layer, it is known as a segment (TCP) or datagram (UDP)
+
 ![image](https://user-images.githubusercontent.com/93304067/218910668-2927f204-b8d8-4557-b395-34e97e76f1ac.png)
 
 ## Encapsulation ##
 Hiding entirety of data in one layer by encapsulating it within the data payload of the layer bellow
-- This means the lower layer does not care about the PDU from the protocal before, and subsequently, what the protocal even was. 
+- This means the lower layer does not care about the PDU from the protocal before, and subsequently, what the protocal even was.
+
 ![image](https://user-images.githubusercontent.com/93304067/218909893-e6fe63e2-718f-449d-86f7-012d3dbf279c.png)
