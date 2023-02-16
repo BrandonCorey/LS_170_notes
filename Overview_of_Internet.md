@@ -102,3 +102,9 @@ Every netword-enabled device is assigned a MAC address when it is manufactured
 - A hub will send a frame to all devices on the network, and the recieving device will check the MAC and drop the frame if it was not intended for them
 - A switch will only send the the frame to the relevant device based on the MAC address
   - It does this by keeping a record of all MAC addresses connected to the switch and which ethernet port they are connected (called MAC address table)
+
+**Scale Issue**
+The above system works well for local networks, but is not suitable for inter-network connectivity
+- MAC addresses are static, and non-hierachical (the entire address must be used to identify a device)
+- If we wanted to apply this strategy to inter-connected networks, we would need routers that stored MAC tables similar to switches
+  - These tables would be gigantic as the static, non-hierarchical nature of the MAC address means every single one that connected to a router would need to be stored
