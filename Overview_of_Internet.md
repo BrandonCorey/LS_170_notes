@@ -76,12 +76,15 @@ amount of data that can be sent in a particular unit of time (usually measured i
 An interface between the workings of the physical network and the more logical layers above
 - Protocals at this layer are concerned with identification of devices on the physical network and moving data between them e.g hosts (computers), switchers, routers
 - Most common protocal at this layer is Ethernet
+  - Note: Wifi is also a protocal at this layer, but at this point we have not covered it
 - The lowest layer at which encapsulation takes place
 
 ### Ethernet frames ###
 This is the protocal data unit (PDU) for the ethernet protocal
 - Takes unstructured bits from phsycial layer and organizes them into a meta-data (header and footer) and data payload
+  - Figures this out based on the set size of each field in bits and the order within the frame
 - They encapsulate data from the Intenet/Network layer above
+### Fields ###
 - Header contains certain things like:
   - Source and destination MAC address
   - Length of payload
@@ -105,6 +108,34 @@ Every netword-enabled device is assigned a MAC address when it is manufactured
 
 **Scale Issue**
 The above system works well for local networks, but is not suitable for inter-network connectivity
-- MAC addresses are static, and non-hierachical (the entire address must be used to identify a device)
+- MAC addresses are usually static (they do not change once assigned by a manufacturer)
+- They are non-hierarchical, meaning there is no structure to them (no indiication of GEO or orangizational location)
 - If we wanted to apply this strategy to inter-connected networks, we would need routers that stored MAC tables similar to switches
   - These tables would be gigantic as the static, non-hierarchical nature of the MAC address means every single one that connected to a router would need to be stored
+
+## Internet / Network Layer ##
+Protocals at this layer faciliate communication between hosts (computers) on different networks
+- The internet protocal (IP) is the predominant protocal used at this layer
+- Currently two versions of IP --> IPv4 and IPv6
+  - We'll mostly be looking at IPv4, but both versions have the same primary features
+- Features: 
+  - Routing capability via IP addressing
+  - Encapsulation of data into packets (PDU for IP)
+## Data packets ## 
+This is the PDU for the internet protocal
+- Comprised of a header + data payload
+- The payload is comprised of the PDU from the layer above (transport layer)
+  - This means it will usually be either a TCP segment (the PDU for TCP) or UDP datagram (PDU for UDP)
+- Header has seperate fields for meta data
+- All data in the packet (header + payload) is in bits
+  - Figures out what goes where based on the set size of each field in bits and the order within the frame
+### Fields ###
+Header contains:
+- Version of IP: (IPv4 vs IPv6)
+- Fields related to fragmentation: allowing PDU's from the transfer layer to be broken into multiple packets and reassembled later
+- TTL (time-to-live): the number of hops a packet can take before being dropped (so it doesn't bounce around forever if it doesn't reach its destination)
+- Protocol: indicates if the payload is TCP or UDP
+- Checksum: Algo that generates a value for total data in the packet. Destination device uses same algo to figure out what data it is supposed to recieve
+  - If the values don't match, the destination device drops the packet
+- Source address: 32 bit IP-address of the sender's network
+- Destination address: 32 bit IP-address of the intended recipients network
