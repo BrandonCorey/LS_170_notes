@@ -53,6 +53,7 @@ Hiding entirety of data in one layer (PDU) by encapsulating it within the data p
 Remember that all are the protocals are enforced by **computers** e.g general computer, server, router, switch etc.
 - Example, the ethernet protocal is just a set of rules about how computers can format and transfer data over ethernet
 - example, the internet protocal is just a set of rules about how computers and routers can format and transfer data over the internet
+- **ALL OF THE HEADERS ARE ADDED BY THE HOST OR SERVER AND REMOVED ALONG THE WAY ONCE THEY ARE NO LONGER USEFUL**
 
 ## Physical Network ##
 The functionality at this layer is concerned with the transfer of bits (binary)
