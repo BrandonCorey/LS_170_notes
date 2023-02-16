@@ -49,9 +49,14 @@ Hiding entirety of data in one layer (PDU) by encapsulating it within the data p
 
 ![image](https://user-images.githubusercontent.com/93304067/218909893-e6fe63e2-718f-449d-86f7-012d3dbf279c.png)
 
+# Note before going on... #
+Remember that all are the protocals are enforced by **computers** e.g general computer, server, router, switch etc.
+- Example, the ethernet protocal is just a set of rules about how computers can format and transfer data over ethernet
+- example, the internet protocal is just a set of rules about how computers and routers can format and transfer data over the internet
+
 ## Physical Network ##
 The functionality at this layer is concerned with the transfer of bits (binary)
-- Bits are convetered into digital signals
+- Bits are convetered into digital signals, radio waves, or light
 - The physical networkis the bottom layer of the OSI model
 
 ### Characteristics of a physical network ###
@@ -72,11 +77,6 @@ amount of data that can be sent in a particular unit of time (usually measured i
 - The lowest point is called the bottleneck
 - Low bandwith can be an issue when working with large amounts of data, but usually is less of a problem than latency for performance in a networked application
 
-# Big note before continuing... #
-When it comes to the data-link layer and Internet layer below, most modern home routers have combined this functionality into a single unit
-- These "routers" serve as both switches (with ethernet ports that multiple devices could connect to) and routers
-- Because of this, do not try to visualize the physical hardware that implements these protocals, might confuse you
-
 ## Link/ Data Link layer ##
 An interface between the workings of the physical network and the more logical layers above
 - Protocals at this layer are concerned with identification of devices on the physical network and moving data between them e.g hosts (computers), switchers, routers
@@ -85,7 +85,7 @@ An interface between the workings of the physical network and the more logical l
 
 ### Ethernet frames ###
 This is the protocal data unit (PDU) for the ethernet protocal
-- Takes unstructured bits from phsycial layer and organizes them into a meta-data (header and footer) and data payload
+- Takes unstructured bits from phsycial layer and organizes them into a meta-data (header and trailer) and data payload
   - Figures this out based on the set size of each field in bits and the order within the frame
 - Encapsulates data from the Intenet/Network layer above
 ### Fields ###
@@ -93,7 +93,7 @@ This is the protocal data unit (PDU) for the ethernet protocal
   - Source and destination MAC address
   - Length of payload
   - Network protocal used for data payload
-- Footer contains:
+- trailer contains:
   - Checksum to see if received frame has all data of sent frame, if not, frame is dropped
 - Payload contains:
   - The entire data protocal from the layer above
@@ -154,9 +154,14 @@ These are logical, hierachical addresses assigned dynamically to devices as they
  
  ![image](https://user-images.githubusercontent.com/93304067/219284582-fa49432f-405b-403b-9b68-68e979122607.png)
 
-## Routing ##
+### Routing ###
 All routes on a network store a local routing table
 - When a packet is recieved by a router, the router looks at the IP address and matches it against a list of network addresses in the table  
   - Remember, the network address is the start of the address range for the subnet
 - The packet will be sent to the matching subnet using the least "expensive" route
 - Kind of like the MAC table for a switch, except instead of having a list of addresses of devices, its a list of addresses of networks
+
+### Limitations of IP ###
+It is great to get data from one device to another device on another network, but what do we do once the data gets there?
+- The data could be for a videogame, a streaming service, a website eticc..
+- This is where the tranport layer comes in
