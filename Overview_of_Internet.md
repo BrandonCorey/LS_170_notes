@@ -48,3 +48,27 @@ Hiding entirety of data in one layer (PDU) by encapsulating it within the data p
 - This means the lower layer does not care about the PDU from the protocal before, and subsequently, what the protocal even was.
 
 ![image](https://user-images.githubusercontent.com/93304067/218909893-e6fe63e2-718f-449d-86f7-012d3dbf279c.png)
+
+## Physical Network ##
+The functionality at this layer is concerned with the transfer of bits (binary)
+- Bits are convetered into digital signals
+- The physical networkis the bottom layer of the OSI model
+
+### Characteristics of a physical network ###
+### Latency ### 
+Time it takes for data to travel from one point to another (usually measured in ms). In is comprised of the different delays below:
+- propogation latency - time for a message to travel from a sender to a reciever (speed / distance)
+- transmition dleay - time it takes for data to be pushed from one link to the next (wires, switches, routers etc are considered links)
+- processing delay - data must be processed before crossing from one link to another. This measures the delay time of the processing
+- queuing delauy - network devices can only process so much data at a time. If this amount is exceeded, the data buffers. This delay measures that time
+### Other Latency terms ###
+- Last-mile-latency - This describes how a lot of the delays above take place near the end of the data transfer journey (between hititng the ISP network and your home)
+- Round-trip time - A latency calculation use in networking to describe total latency + added length of time for acknowledgement or reponse to be recieved
+- hop - When data travels from one router to the next
+### Bandwith ###
+amount of data that can be sent in a particular unit of time (usually measured in seconds)
+- Bandwith varies through the journe of data transfer. The bandwith of the core network (internet infra) is going to be much higher than in your home network.
+- Bandwith is generally measured using the lowest point within the entire connection
+- The lowest point is called the bottleneck
+- Low bandwith can be an issue when working with large amounts of data, but usually is less of a problem than latency for performance in a networked application
+
