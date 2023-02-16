@@ -72,3 +72,21 @@ amount of data that can be sent in a particular unit of time (usually measured i
 - The lowest point is called the bottleneck
 - Low bandwith can be an issue when working with large amounts of data, but usually is less of a problem than latency for performance in a networked application
 
+## Link/ Data Link layer ##
+An interface between the workings of the physical network and the more logical layers above
+- Protocals at this layer are concerned with identification of devices on the physical network and moving data between them e.g hosts (computers), switchers, routers
+- Most common protocal at this layer is Ethernet
+- The lowest layer at which encapsulation takes place
+
+### Ethernet frames ###
+This is the protocal data unit (PDU) for the ethernet protocal
+- Takes unstructured bits from phsycial layer and organizes them into a meta-data (header and footer) and data payload
+- They encapsulate data from the Intenet/Network layer above
+- Header contains certain things like:
+  - Source and destination MAC address
+  - Length of payload
+  - Network protocal used for data payload
+- Footer contains:
+  - Checksum to see if received frame has all data of sent frame, if not, frame is dropped
+- Payloard contains:
+  - The entire data protocal from the layer above
