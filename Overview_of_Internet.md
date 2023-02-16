@@ -26,13 +26,13 @@ The internet is simply a huge network of networks
   - e.g TCP vs UDP
 
 ## Internet layers ##
-1. **Application Layer**: the layer that interacts with the user or application. Protocols at this layer include HTTP, FTP, and SMTP.
-2. **Presentation Layer**: responsible for transforming data into a format that the application layer can use. Protocols at this layer include SSL and TLS.
-3. **Session Layer**: responsible for establishing, managing, and terminating connections between applications. Protocols at this layer include NetBIOS and RPC.
-4. **Transport Layer**: responsible for reliable end-to-end delivery of data. Protocols at this layer include TCP and UDP.
-5. **Network Layer**: responsible for routing packets between different networks. Protocols at this layer include IP, ICMP, and ARP.
-6. **Data Link Layer**: responsible for organizing bits into frames, adding error detection and correction, and managing access to the physical medium. Protocols at this layer include Ethernet, PPP, and ATM.
-7. **Physical Layer**: responsible for transmitting bits over a communication channel. Protocols at this layer include Ethernet, Wi-Fi, and Bluetooth.
+1. **Application Layer**: the layer that interacts with the user or application
+2. **Presentation Layer**: responsible for transforming data into a format that the application layer can use
+3. **Session Layer**: responsible for establishing, managing, and terminating connections between applications
+4. **Transport Layer**: responsible for reliable end-to-end delivery of data
+5. **Network Layer**: responsible for routing packets between different networks
+6. **Data Link Layer**: responsible for organizing bits into frames, adding error detection and correction
+7. **Physical Layer**: responsible for transmitting bits over a communication channel
 
 ## PDU ##
 an amount or block of data transferred over a network
@@ -72,18 +72,22 @@ amount of data that can be sent in a particular unit of time (usually measured i
 - The lowest point is called the bottleneck
 - Low bandwith can be an issue when working with large amounts of data, but usually is less of a problem than latency for performance in a networked application
 
+# Big note before continuing... #
+When it comes to the data-link layer and Internet layer below, most modern home routers have combined this functionality into a single unit
+- These "routers" serve as both switches (with ethernet ports that multiple devices could connect to) and routers
+- Because of this, do not try to visualize the physical hardware that implements these protocals, might confuse you
+
 ## Link/ Data Link layer ##
 An interface between the workings of the physical network and the more logical layers above
 - Protocals at this layer are concerned with identification of devices on the physical network and moving data between them e.g hosts (computers), switchers, routers
 - Most common protocal at this layer is Ethernet
-  - Note: Wifi is also a protocal at this layer, but at this point we have not covered it
 - The lowest layer at which encapsulation takes place
 
 ### Ethernet frames ###
 This is the protocal data unit (PDU) for the ethernet protocal
 - Takes unstructured bits from phsycial layer and organizes them into a meta-data (header and footer) and data payload
   - Figures this out based on the set size of each field in bits and the order within the frame
-- They encapsulate data from the Intenet/Network layer above
+- Encapsulates data from the Intenet/Network layer above
 ### Fields ###
 - Header contains certain things like:
   - Source and destination MAC address
@@ -91,11 +95,11 @@ This is the protocal data unit (PDU) for the ethernet protocal
   - Network protocal used for data payload
 - Footer contains:
   - Checksum to see if received frame has all data of sent frame, if not, frame is dropped
-- Payloard contains:
+- Payload contains:
   - The entire data protocal from the layer above
 
 ### Mac addresses ###
-Every netword-enabled device is assigned a MAC address when it is manufactured
+Every network-enabled device (has Network Inteface card inside it) is assigned a MAC address when it is manufactured
 - These are almost always unique
 - Referred to sometimes as _physical address_ or _burned-in address_
 - Formatted as six two-digit hexadecimal numbers e.g `00:40:96:9d:68:0a`
@@ -121,7 +125,7 @@ Protocals at this layer faciliate communication between hosts (computers) on dif
 - Features: 
   - Routing capability via IP addressing
   - Encapsulation of data into packets (PDU for IP)
-## Data packets ## 
+### Data packets ### 
 This is the PDU for the internet protocal
 - Comprised of a header + data payload
 - The payload is comprised of the PDU from the layer above (transport layer)
@@ -137,5 +141,22 @@ Header contains:
 - Protocol: indicates if the payload is TCP or UDP
 - Checksum: Algo that generates a value for total data in the packet. Destination device uses same algo to figure out what data it is supposed to recieve
   - If the values don't match, the destination device drops the packet
-- Source address: 32 bit IP-address of the sender's network
-- Destination address: 32 bit IP-address of the intended recipients network
+- Source address: 32 bit IP-address of the sender
+- Destination address: 32 bit IP-address of the intended recipient
+### IP addresses (IPv4) ###
+These are logical, hierachical addresses assigned dynamically to devices as they join a network
+- They must fall within a range of addresses available to the network
+  - The range is defined by a network hierarchy, where an overall network is divided into subnets, each with their own range (that falls within the overall range)
+  - Adressea are 32 bits in length, divided into four sections of 8 bits each
+    - When converted to decimals, each of those sections provides a number bween 0-255
+- Within the IP range, the overall **Network address* starts the range, and the **Broadcast address** ends it
+  - This range can be used to identify packets sent to devices sent on the network or a subnet of the network
+ 
+ ![image](https://user-images.githubusercontent.com/93304067/219284582-fa49432f-405b-403b-9b68-68e979122607.png)
+
+## Routing ##
+All routes on a network store a local routing table
+- When a packet is recieved by a router, the router looks at the IP address and matches it against a list of network addresses in the table  
+  - Remember, the network address is the start of the address range for the subnet
+- The packet will be sent to the matching subnet using the least "expensive" route
+- Kind of like the MAC table for a switch, except instead of having a list of addresses of devices, its a list of addresses of networks
