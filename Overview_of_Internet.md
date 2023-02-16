@@ -157,8 +157,8 @@ These are logical, hierachical addresses assigned dynamically to devices as they
 ### Routing ###
 All routes on a network store a local routing table
 - When a packet is recieved by a router, the router looks at the IP address and matches it against a list of network addresses in the table  
-  - Remember, the network address is the start of the address range for the subnet
-- The packet will be sent to the matching subnet using the least "expensive" route
+  - Remember, the network address is the start of the address range for the network
+- The packet will be sent to the matching network using the least "expensive" route
 - Kind of like the MAC table for a switch, except instead of having a list of addresses of devices, its a list of addresses of networks
 
 ### Limitations of IP ###
