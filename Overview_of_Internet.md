@@ -90,3 +90,15 @@ This is the protocal data unit (PDU) for the ethernet protocal
   - Checksum to see if received frame has all data of sent frame, if not, frame is dropped
 - Payloard contains:
   - The entire data protocal from the layer above
+
+### Mac addresses ###
+Every netword-enabled device is assigned a MAC address when it is manufactured
+- These are almost always unique
+- Referred to sometimes as _physical address_ or _burned-in address_
+- Formatted as six two-digit hexadecimal numbers e.g `00:40:96:9d:68:0a`
+- **These addresses are used by the data link protocals to determine where data was sent from and where it was received**
+
+**Switch vs Hub (using MAC addresses)**
+- A hub will send a frame to all devices on the network, and the recieving device will check the MAC and drop the frame if it was not intended for them
+- A switch will only send the the frame to the relevant device based on the MAC address
+  - It does this by keeping a record of all MAC addresses connected to the switch and which ethernet port they are connected (called MAC address table)
