@@ -77,3 +77,31 @@ There are two types of connections that can be facilitated with sockets:
 
 ![image](https://user-images.githubusercontent.com/93304067/219549867-25f3f7d6-6cf9-45a9-86dd-ae20a248ad57.png)
 
+# Network Reliability #
+A major issue with netowrks is that lower level protocals do not provide reliability
+- Data-link and IP both drop corrupt data after performing a check sum
+- But they do not retransmit that lsot data
+
+## Designing a reliable protocal ##
+1. Sender sends a message with ID number and sets a timeout
+2. If message recieved, recipient sends acknowledgment with corresponding ID number to indicate which message was recieved
+3. When acknowledgement is recieved, sender sends another message
+4. If acknowledge is not recieved for a message before timeout, sender sends another message of the same ID
+5. If recipient recieves a duplicate message (based on ID), it assumes sender never recieved acknowledge, and resends it for that message ID
+
+###  Benefits of the above protocol ###
+- In-order delivery: data is received in the order that it was sent
+- Error detection: corrupt data is identified using a checksum
+- Handling data loss: missing data is retransmitted based on acknowledgements and timeouts
+- Handling duplication: duplicate data is eliminated through the use of sequence numbers
+
+### Making above protocol more efficient with pipelining ###
+Instead of sending one message at a time and waiting for acknowledgement....
+- We can send a set number of messages all at once and wait for all of their acknowledgements
+- Once they are all acknowledged, we can send another burst of messages and repeat
+  - If a message is never recieved or acknowledged, the rules from before still hold
+
+**This is called peipelining**
+- Its essentialy what the TCP protocol does
+
+![image](https://user-images.githubusercontent.com/93304067/219556056-0c4b516b-80b9-4cbe-a37f-20a8675d9606.png)
