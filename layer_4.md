@@ -100,6 +100,7 @@ Instead of sending one message at a time and waiting for acknowledgement....
 - We can send a set "window" for maximum number of messages allowed in the pipeline at once
 - Once a message is ackowledged, we have room for another message in the pipeline and can immediately send
   - If a message is never recieved or acknowledged, the rules from before still hold
+  - A new message is not sent until messages are acknowledged in order
 
 **This is called peipelining**
 - Its essentialy what the TCP protocol does
