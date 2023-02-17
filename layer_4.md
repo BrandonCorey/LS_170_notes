@@ -137,7 +137,8 @@ SYN (Synchronize):
 SYN-ACK (Synchronize-Acknowledge):
 - The receiving device responds with a SYN-ACK message, which acknowledges the receipt of the SYN message and sends its own SYN message back to the initiating device. This message also contains a sequence number. (Header SYN and ACK fields set to 1)
 
-ACK (Acknowledge): The initiating device responds with an ACK message, which acknowledges the receipt of the SYN-ACK message. This message also contains a sequence number, and the connection is now established and data can be exchanged between the two devices. (ACK field set to 1)
+ACK (Acknowledge):
+- The initiating device responds with an ACK message, which acknowledges the receipt of the SYN-ACK message. This message also contains a sequence number, and the connection is now established and data can be exchanged between the two devices. (ACK field set to 1)
 
 ![image](https://user-images.githubusercontent.com/93304067/219788088-4479c466-bd6c-4ca1-83bb-9cda9f9bd877.png)
 ![image](https://user-images.githubusercontent.com/93304067/219788189-f13b5b1a-3bed-4b11-88b9-cd61888aefaa.png)
