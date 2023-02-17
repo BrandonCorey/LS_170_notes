@@ -109,11 +109,12 @@ Instead of sending one message at a time and waiting for acknowledgement....
 ![image](https://user-images.githubusercontent.com/93304067/219556056-0c4b516b-80b9-4cbe-a37f-20a8675d9606.png)
 
 ## Transmission Control prototcol (TCP) ##
-A protocol of the transfer layer that provides reliable data transfer
+A **connection oriented** protocol of the transfer layer that provides reliable data transfer
 - The TCP recovers from data this damaged, lost, duplicated, or delivered out of order
 - Provides reliable network communication on top of unreliable lower layers
 - Hides the complexity of reliable network communication from the applicaion layer (the layer above transfer)
 - Also provides encapsulation and multiplexing through use of TCP segments (the PDU)
+  - The _multiplexing_ is provided by the header fields _source port_ and _destination port_ as they allow different data for different services to be streamed through one channel and then demultiplexed when needed to arrive at the correct socket
 
 
 ### TCP segments ###
@@ -127,7 +128,7 @@ This is the PDU for the TCP protocol
   - flags - One bit boolean fieds --> SYN, ACK, FIN, RST are important ones
 
 ### TCP connections ###
-TCP is a connection-oriented protocol. It doesn't start sending application data until a dedicated connection has been established between application processes
+**TCP is a connection-oriented protocol**. It doesn't start sending application data until a dedicated connection has been established between application processes
 - Uses three-way handshake to establish a connection
 
 
@@ -164,3 +165,29 @@ Flow control has to do with controlling traffic for application communication, c
 There is increased latency assoicated with TCP for reasons like:
 - Three way handshake as it requires multiple acknowledgements before the connection can be established
 - Head-of-line blocking --> Because data needs to be delivered in order, if one piece needs to be retransmitted, the pieces that come after need to be buffered until retransmission has completed
+
+## UDP ##
+User Datagram protocol (UDP) is a **connectionless** protocol of the transport layer that provides data transfer
+- PDU is called a datagram
+- Encapsulates data frrom the application layer and adds header info
+- Header only includes **source port, destination port, length of datagram (in bits), and checksum**
+  - Checksum is optional when used with IPv4 since it also has a checksum, but mandatory with IPv6 as it doesn't
+- UDP also provides multiplexing as it stores port information that can be used to de-multiplex the data later on
+- Does **NOT** resolve network unreliability of layers below it
+  - No guarentee of delivery
+  - No guarentee of correct delivery order
+  - No congestion avoidance or flow control mechanism
+  - No connection state tracking mechanism (since it is connectionless protocol)
+
+### Benefits of UDP ###
+Although less reliable, the simplicity allows for certain advantages over TCP
+- Speed: 
+  - UDP is connectionless and does not need to wait for a connection to be established process before sending data
+  - The actual data transfer is also faster as there are no acknowledgements, retransmissions, or necessities for in order delivery, reduces queue latency
+- More flexibility:
+  - UDP offers fast, barebones data transfer to an application process that can be built upon in the above application layer
+  - This means a developer may implement something like in order delivery, but decide not to implement acknowledges as occasional lost data may not me important
+  - **NOTE: There are best practices to adhere to when using UDP, like implementing your own form of congestion avoidance**
+
+A videogame or a video call are examples of applications that would benefit from using UDP as speed is more important than perfect data
+  - Applications that suffer greatly from increased latency may benefit from utilizing UDP at the transfer layer
