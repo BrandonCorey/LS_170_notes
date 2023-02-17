@@ -2,6 +2,7 @@
 This layer relates to how we handle data once it has been recieved by a host or a device
 - IP gets us to the device, but the transfer protocals help us relay data to the correct application
 
+# Communication between Processes #
 ## Multiplexing and Demultiplexing ##
 A device may have many networked applications running on a single machine, acting as distinct communication channels
 - How do we get the data from these channels to our target devices?
@@ -75,3 +76,4 @@ There are two types of connections that can be facilitated with sockets:
 - This implementation essentially allows for a dedicated connection for communication between specific processes running on different hosts
 
 ![image](https://user-images.githubusercontent.com/93304067/219549867-25f3f7d6-6cf9-45a9-86dd-ae20a248ad57.png)
+
