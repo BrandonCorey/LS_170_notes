@@ -129,6 +129,7 @@ This is the PDU for the TCP protocol
 ### TCP connections ###
 TCP is a connection-oriented protocol. It doesn't start sending application data until a dedicated connection has been established between application processes
 - Uses three-way handshake to establish a connection
+- **Note that this is all the OVERHEAD OF ESTABLISHING A CONNECTION, TCP also uses acknowledgements during the data transfer process after the connection is established**
 
 ### Three way handshake ###
 SYN (Synchronize): 
