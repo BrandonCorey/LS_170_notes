@@ -58,7 +58,8 @@ An abstraction for an endpoint used for inter-process communication
 
 ### Sockets and connections ###
 There are two types of connections that can be facilitated with sockets:
-- connectionless:
+
+#### connectionless: ####
   - Could have one socket object defined by IP address of host + port assigned to process on machine listening for all incoming messages directed at its IP/port pair
   - Could come from any source at any time, in any order
   - Simply processes the incoming messages as they arrive and sends responses as necessary
