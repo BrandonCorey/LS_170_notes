@@ -34,6 +34,7 @@ Consists of two things:
 - Payload consisting of encapsulated application layer data
 - Header with fields for **Source Port** and **Destination Port**
 - This entire PDU is the used as the data payload for the IP packet
+- The IP addresses in the packet header is used to get data from one host to another, and the port numbers are used to direct the data to specific processes on a host
 
 The combination of an IP address and a port number is referred to as a _**socket**_ e.g `216.3.128.12:8080`
 
