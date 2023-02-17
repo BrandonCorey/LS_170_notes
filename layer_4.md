@@ -50,7 +50,7 @@ An abstraction for an endpoint used for inter-process communication
 - Represented by an IP address concatenated to a port number
 - A common internet socket is TCP/IP, used for inter-process communication between networked processes (usually on different machines)
   - Tecnically, you could run a server on your `localhost` and access it via a browser on the same device. These would still use internet sockets to communicate
-- In code, sockets are instantiated as objects to create connections between applications
+- **In code, sockets are represented as objects and instantiated to create connections between applications**
 ### Keep in mind ###
 - There are also UNIX sockets used for communication between local processes, but not important for this course
 - There is also a distinction between the concept of a socket and its code implemtation
@@ -62,7 +62,7 @@ There are two types of connections that can be facilitated with sockets:
 **Connectionless:**
 - Could have one socket object defined by IP address of host + port assigned to process on machine listening for all incoming messages directed at its IP/port pair
 - Could come from any source at any time, in any order
-- Simply processes the incoming messages as they arrive and sends responses as necessary
+- This implementation allows sockets to process the incoming messages as they arrive and sends responses as necessary
 
 ![image](https://user-images.githubusercontent.com/93304067/219549848-bbf50f65-dee3-4392-9ce7-49466d485ba1.png)
 
@@ -72,5 +72,6 @@ There are two types of connections that can be facilitated with sockets:
 - These new instances will only listen for for messages where soure port, soure IP, destination port, and destination IP match up
   - These four pieces of info above are called a four-tuple
 - Any messages not matching the four-tuple would be picked up by the original socket, which then instantiates a new socket object
+- This implementation essentially allows for a dedicated connection for communication between specific processes running on different hosts
 
 ![image](https://user-images.githubusercontent.com/93304067/219549867-25f3f7d6-6cf9-45a9-86dd-ae20a248ad57.png)
