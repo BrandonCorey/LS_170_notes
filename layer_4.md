@@ -97,11 +97,12 @@ A major issue with netowrks is that lower level protocals do not provide reliabi
 
 ### Making above protocol more efficient with pipelining ###
 Instead of sending one message at a time and waiting for acknowledgement....
-- We can send a set number of messages all at once and wait for all of their acknowledgements
-- Once they are all acknowledged, we can send another burst of messages and repeat
+- We can send a set "window" for maximum number of messages allowed in the pipeline at once
+- Once a message is ackowledged, we have room for another message in the pipeline and can immediately send
   - If a message is never recieved or acknowledged, the rules from before still hold
 
 **This is called peipelining**
 - Its essentialy what the TCP protocol does
+- Here's a nice visualization: http://www.ccs-labs.org/teaching/rn/animations/gbn_sr/
 
 ![image](https://user-images.githubusercontent.com/93304067/219556056-0c4b516b-80b9-4cbe-a37f-20a8675d9606.png)
