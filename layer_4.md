@@ -125,3 +125,20 @@ This is the PDU for the TCP protocol
   - Sequence number & acknowledgement number - two fields used for in-order delivery, data loss, and duplication detection
   - Window size - maximum number of messages allowed in the pipeline at a given time
   - flags - One bit boolean fieds --> SYN, ACK, FIN, RST are important ones
+
+### TCP connections ###
+TCP is a connection-oriented protocol. It doesn't start sending application data until a dedicated connection has been established between application processes
+- Uses three-way handshake to establish a connection
+
+### Three way handshake ###
+SYN (Synchronize): 
+- The initiating device sends a SYN message to the receiving device to start the connection. This message contains a sequence number, which is used to keep track of the data sent and received. (Header "SYN" field is set to 1)
+
+SYN-ACK (Synchronize-Acknowledge):
+- The receiving device responds with a SYN-ACK message, which acknowledges the receipt of the SYN message and sends its own SYN message back to the initiating device. This message also contains a sequence number. (Header SYN and ACK fields set to 1)
+
+- ACK (Acknowledge): The initiating device responds with an ACK message, which acknowledges the receipt of the SYN-ACK message. This message also contains a sequence number, and the connection is now established and data can be exchanged between the two devices. (ACK field set to 1)
+
+![image](https://user-images.githubusercontent.com/93304067/219788088-4479c466-bd6c-4ca1-83bb-9cda9f9bd877.png)
+![image](https://user-images.githubusercontent.com/93304067/219788189-f13b5b1a-3bed-4b11-88b9-cd61888aefaa.png)
+
