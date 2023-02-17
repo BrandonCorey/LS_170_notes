@@ -39,3 +39,19 @@ Consists of two things:
 The combination of an IP address and a port number is referred to as a _**socket**_ e.g `216.3.128.12:8080`
 
 ![image](https://user-images.githubusercontent.com/93304067/219535108-b63a2ea9-4dfc-4b0a-ab59-26d17cb0903a.png)
+
+### netstat ###
+Can use the below command to look at active network connections (will list sockets as addresses)
+```bash
+sudo netstat -tunap
+```
+## Sockets ##
+An abstraction for an endpoint used for inter-process communication
+- Represented by an IP address concatenated to a port number
+- A common internet socket is TCP/IP, used for inter-process communication between networked processes (usually on different machines)
+  - Tecnically, you could run a server on your `localhost` and access it via a browser on the same device. These would still use internet sockets to communicate
+- In code, sockets are instantiated as objects to create connections between applications
+### Keep in mind ###
+- There are also UNIX sockets used for communication between local processes, but not important for this course
+- There is also a distinction between the concept of a socket and its code implemtation
+- This course primarily focuses on the _concept_ of a socket and the application of this concept for inter-network communication between networked applicaiton
