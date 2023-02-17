@@ -131,7 +131,7 @@ TCP is a connection-oriented protocol. It doesn't start sending application data
 - Uses three-way handshake to establish a connection
 
 
-**Note that this is the OVERHEAD OF ESTABLISHING A CONNECTION, TCP also uses acknowledgements during the data transfer process after the connection is established**
+**Note that below is the OVERHEAD OF ESTABLISHING A CONNECTION, TCP also uses acknowledgements during the data transfer process after the connection is established**
 ### Three way handshake ###
 SYN (Synchronize): 
 - The initiating device sends a SYN message to the receiving device to start the connection. This message contains a sequence number, which is used to keep track of the data sent and received. (Header "SYN" field is set to 1)
@@ -145,3 +145,22 @@ ACK (Acknowledge):
 ![image](https://user-images.githubusercontent.com/93304067/219788088-4479c466-bd6c-4ca1-83bb-9cda9f9bd877.png)
 ![image](https://user-images.githubusercontent.com/93304067/219788189-f13b5b1a-3bed-4b11-88b9-cd61888aefaa.png)
 
+### Flow control ###
+A mechanism to prevent the sender overwhelming the reciever with too much data at once
+- Data awaiting processing is stored in a buffer (the size of the buffer is depenedent on the amount of memory allocated by the OS)
+- Each side the connection can let the other know how much data it is willing to accept at once with the "window" field in the TCP header
+- This field can be changed through the duration of the connection depending on how full the recievers buffer is getting
+
+### Congestion Avoidance ###
+Similar to flow control, however this mechanism is concerned with not overwhelmng the network instead of the reciever
+- Routers also have a buffer as they need to process IP packets (run checksum, route based on sourec/destination IP)
+- If the buffer overflows, the packets are dropped, which will most likely cause TCP to retransmits the data
+- If the lots of data continues to get lost TCP, takes this as a sign of network congestion, and shrinks the size of the transmission window
+
+### Important Note on flow control vs congestion avoidance ###
+Flow control has to do with controlling traffic for application communication, congestion avoidance has to do with controlling traffic for network communication
+
+## Downsides of TCP ##
+There is increased latency assoicated with TCP for reasons like:
+- Three way handshake as it requires multiple acknowledgements before the connection can be established
+- Head-of-line blocking --> Because data needs to be delivered in order, if one piece needs to be retransmitted, the pieces that come after need to be buffered until retransmission has completed
