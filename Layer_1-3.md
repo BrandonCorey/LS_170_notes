@@ -105,7 +105,7 @@ These are logical, hierachical addresses assigned dynamically to devices as they
  ![image](https://user-images.githubusercontent.com/93304067/219284582-fa49432f-405b-403b-9b68-68e979122607.png)
 
 ### Routing ###
-All routes on a network store a local routing table
+All routers on a network store a routing table
 - When a packet is recieved by a router, the router looks at the IP address and matches it against a list of network addresses in the table  
   - Remember, the network address is the start of the address range for the network
 - The packet will be sent to the matching network using the least "expensive" route
@@ -115,3 +115,9 @@ All routes on a network store a local routing table
 It is great to get data from one device to another device on another network, but what do we do once the data gets there?
 - The data could be for a videogame, a streaming service, a website eticc..
 - This is where the tranport layer comes in
+
+### Note ###
+Use `tracepath` in Ubuntu or `traceroute` if yoiu want to see how packets hop from host --> router --> router.... --> to host
+```bash
+traceroute google.com
+```
