@@ -102,8 +102,26 @@ Instead of sending one message at a time and waiting for acknowledgement....
   - If a message is never recieved or acknowledged, the rules from before still hold
   - A new message is not sent until messages are acknowledged in order
 
-**This is called peipelining**
+**This is called pipelining**
 - Its essentialy what the TCP protocol does
 - Here's a nice visualization: http://www.ccs-labs.org/teaching/rn/animations/gbn_sr/
 
 ![image](https://user-images.githubusercontent.com/93304067/219556056-0c4b516b-80b9-4cbe-a37f-20a8675d9606.png)
+
+## Transmission Control prototcol (TCP) ##
+A protocol of the transfer layer that provides reliable data transfer
+- The TCP recovers from data this damaged, lost, duplicated, or delivered out of order
+- Provides reliable network communication on top of unreliable lower layers
+- Hides the complexity of reliable network communication from the applicaion layer (the layer above transfer)
+- Also provides encapsulation and multiplexing through use of TCP segments (the PDU)
+
+
+### TCP segments ###
+This is the PDU for the TCP protocol
+- Has a header and a data payload
+- Header contains:
+  - **Source Port** and **Destination port**, along with other fields
+  - Checksum - provides error detection for corrupted data
+  - Sequence number & acknowledgement number - two fields used for in-order delivery, data loss, and duplication detection
+  - Window size - maximum number of messages allowed in the pipeline at a given time
+  - flags - One bit boolean fieds --> SYN, ACK, FIN, RST are important ones
