@@ -111,10 +111,11 @@ Instead of sending one message at a time and waiting for acknowledgement....
 ## Transmission Control prototcol (TCP) ##
 A **connection oriented** protocol of the transfer layer that provides reliable data transfer
 - The TCP recovers from data this damaged, lost, duplicated, or delivered out of order
+  - sequence numbers allow recipient to store out of order messages in a buffer until the missing messages are retransmitted
 - Provides reliable network communication on top of unreliable lower layers
 - Hides the complexity of reliable network communication from the applicaion layer (the layer above transfer)
 - Also provides encapsulation and multiplexing through use of TCP segments (the PDU)
-  - The _multiplexing_ is provided by the header fields _source port_ and _destination port_ as they allow different data for different services to be streamed through one channel and then demultiplexed when needed to arrive at the correct socket
+  - The _multiplexing_ is provided by the header fields _source port_ and _destination port_ as they allow different data for different services to be streamed through one channel and then demultiplexed when needed to arrive at the correct socket 
 
 
 ### TCP segments ###
