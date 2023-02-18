@@ -125,7 +125,7 @@ This is the PDU for the TCP protocol
   - **Source Port** and **Destination port**, along with other fields
   - Checksum - provides error detection for corrupted data
   - Sequence number & acknowledgement number - two fields used for in-order delivery, data loss, and duplication detection
-  - Window size - maximum number of messages allowed in the pipeline at a given time
+  - Window size - maximum number of messages allowed in the pipeline at a given time. This determined dynamically based on how much space is available in the recievers buffer
   - flags - One bit boolean fieds --> SYN, ACK, FIN, RST are important ones
 
 ### TCP connections ###
