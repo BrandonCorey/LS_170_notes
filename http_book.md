@@ -166,6 +166,7 @@ Offer additional information about the resource being sent back. The most common
 - `Server` - Name of the server e.g `Server:thin 1.5.0 codename Knife
 - `Location` - Notify client of new resouce location e.g `Location:https://www.github.com/login`
 - `Conent-Type` - The type of data the resonse contains e.g `ContentType:text/html; charset=UTF-8`
+  - This is typically the only **required** header in an HTTP response
 
 Once again, do not need to memorize them
 
