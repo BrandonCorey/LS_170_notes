@@ -97,3 +97,30 @@ These are intiated by either clicking or link or entering something in the addre
   - This is the default behavior of a link as well (issue a `GET` request to the URL)
 
 Can make request using this in the terminal: `curl -X GET <URL> -m 30 -v`
+
+### POST Requests ###
+Used when we want to initiate some action on the server or send data to the server
+- `POST` is typically used when submitting a form within a browser
+  - Form elements in the HTML can be referenced with their name within a `POST` request
+- Allows us to send much larger and sensitive data to the sever than with query strings
+- The data sent in the `POST` request is contained within the `HTTP` body
+  - The body of the HTTP message is optional
+  - Can contain HTML, images, videos etc..
+- Reponses to `POST` requests may contain links to other webpages in the reponse header "Location", which your browser automatically issues a `GET` request for
+
+Exampole of `POST` request: `curl -X POST "http://al-blackjack.herokuapp.com/new_player" -d "player_name=Albert" -m 30 -v`
+
+### HTTP Headers ###
+Allow the client and the server to send additional information during the HTTP request/response cycle
+- Colon seperated name-value pairs sent in plain text
+- Can see them using Inspect --> Network --> Headers
+- Reqeusts and responses have different sets of headers available to them
+
+**Important Request headers**
+- `Host`- domain name of the server e.g `Host:www.google.com`
+- `Accept-Language` - List of acceptable languages e.g `Accept-Language:en-US,en;q=0.8
+- `User-Agent` - A string that identifies the client e.g `User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36
+- `Connection` - Type of the connection the client would prefer e.g `Connection:keep-alive`
+
+Don't bother memorizing the headers
+
