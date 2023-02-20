@@ -43,7 +43,9 @@ Given: `http://www.example.com:88/home?item=book`
 1. scheme - first part of the url, commonly `http`, `ftp`, `mailto`, or `git`. Sometimes used to indicate which protocol to use to access the resource
 2. host - where the resource is hoisted e.g `www.example.com`
 3. port - (optional) port number to be provided if you don't want to use the defualt one e.g `88`
-4. path - (optional) local resourece being requested e.g `home`
+  - Default port for HTTP: `80`
+  - Default port for HTTPS: `443`
+5. path - (optional) local resourece being requested e.g `home`
   - Sometimes path can point to a specific resource on the host like an html file 
 6. query string - (optional) made up of query parameters to send data to the server e.g `?item=book`
 
