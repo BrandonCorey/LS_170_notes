@@ -40,3 +40,13 @@ A server that contains the application or business logic, where most of the comp
 Remember that HTTP requests are sent using other protocls (typically TCP + IP) to get to the correct client
 - HTTP operates at the application layer and is concerned with the structure of the messages
 - It does not handle the transporation of the message, that is where the network and transport layers come in and their protocols
+
+## URL notes ##
+A URL is a subset of a URI. Do not need to understand the differences for now
+- A URL contains a _scheme_ at the start, **NOT** a protocol
+  - The scheme indicates the protocl that should be used for the request
+  - Schemes are **lowercase**, protocls are **UPPERCASE** e.g `http vs HTTP`
+- URLs used to commonly reference actual files on a server e.g `http://www.example.com/index.html`
+  - This is no longer the case
+  - Much of the content on the web nowadays is generated dynamically (either on the server or within the client)
+  - The URL path is now determined by application logic typically, not an underlying file system on the server
