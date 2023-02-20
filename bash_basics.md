@@ -4,8 +4,9 @@ Bash is a command language used for interracting with a system enviroment
   - `echo 'Hello world'`
 - `read` - Reads input and stores in a specified variable. Can also pass multiple variables to read
   -  `read last_name first_name`
-- `$` - used to reference a variables's value
+- `$` - used to reference a variables's value. Strings can also be interpolated using double quotes `"` with dollar sign
   - `echo $last_anme` 
+  - `echo "hello $first_name"`
 
 ### Files ###
 Use the `.sh` extension to denote bash files
@@ -62,5 +63,53 @@ else
 fi
 ```
 
+### loops ###
+```bash
+#!/usr/bin/bash
+# while loops
+counter=0
+max=100
+
+while [[ $counter -le $max ]]
+do
+  echo $counter
+  ((counter++))
+done
+```
+```bash
+#!/usr/bin/bash
+# until loops
+
+counter=0
+max=100
+
+until [[ $counter -gt $max ]]
+do
+  echo $counter
+  ((counter++))
+done
+```
+```bash
+#!/usr/bin/bash
+# for loops
+numbers='1 2 3 4 5 6 7 8 9 10'
+
+for number in $numbers
+do
+  echo $number
+done
+```
 ![image](https://user-images.githubusercontent.com/93304067/220205742-cede10c1-f0ab-45c9-8401-0087318b463b.png)
 
+
+### functions ###
+Function definitions refer to passed arugments based on their positions
+```bash
+#!/usr/bin/bash
+
+greet () {
+  echo "Hi $1"
+}
+
+greet 'brandon'
+```
