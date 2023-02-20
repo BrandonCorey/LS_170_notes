@@ -38,9 +38,31 @@ A stateless protocol is one that is designed in a way where each request/respons
 
 ## URL ##
 Uniform Resource Locator (URL) is an address that can be used to access resources on the web
+
 Given: `http://www.example.com:88/home?item=book`
 1. scheme - first part of the url, commonly `http`, `ftp`, `mailto`, or `git`. Sometimes used to indicate which protocol to use to access the resource
 2. host - where the resource is hoisted e.g `www.example.com`
 3. port - (optional) port number to be provided if you don't want to use the defualt one e.g `88`
 4. path - (optional) local resourece being requested e.g `home`
-5. query string - (optional) made up of query parameters to send data to the server e.g `?item=book`
+  - Sometimes path can point to a specific resource on the host like an html file 
+6. query string - (optional) made up of query parameters to send data to the server e.g `?item=book`
+
+### Query strings ###
+Give: `http://www.example.com?search=ruby&results=10`
+- `?` - Reserved character that marks start of query string
+- `search=javascript` - This is a paramater name/value pair
+- `&` - Reserved character for adding more parameters to query string
+
+- Because query strings can only be passed through the URL, they can only be used in HTTP GET requests
+- The name/value pairs are visible in the URL, so sensitive info cannot be passed to server using them
+- Reserved characters cannot be used in query strings. Neither can the space character
+
+### URL encoding ###
+Replaces reserved or unsafe ASCII characters with a `%` symbol followed by UTF-8 charcode
+- `Space`	--> `%20`
+- `$`	--> `%24`
+- `£`	--> `%C2%A3`
+- `€`	--> `%E2%82%AC`
+
+Note: Safe characters include all alphanumeric + `$-_.+!'()",`
+
