@@ -1,6 +1,6 @@
 What are the required components of an HTTP request? What are the additional optional components?
 
-- A: Required: `Method`, Path, and `Host`. Additional: All other headers and body is optional
+- A: Required: `Method`, `Path`, and `Host`. Additional: All other headers and body is optional
 
 What are the required components of an HTTP response? What are the additional optional components?
 
