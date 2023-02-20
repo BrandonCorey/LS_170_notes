@@ -203,4 +203,42 @@ Asynchronous JavaScript and XML
 - Requests are sent as normal, reponses are sent as normal, but each response is processed by a server side callback function
   - The callback is triggered when the response is returned, and is responsible for updating the HTML
 
+## Security ##
+Since HTTP is non-encrypted, and requests and responses are sent as plain text, there are security concerns
+- A hacker could try to steal session information from a cookie and log into your account, for example
 
+### HTTPS ###
+A HTTP protocl where all request/responses are encrypted before being transported on the network
+- Sends messages through a cryptographic protocol called TLS
+- Ealier versions of HTTPS used SSL (Secure Scockets Layer)
+- Use certificates to communicate with servers and exchange security keys before encryption
+
+### Same-origin Policy ###
+Retricts certain interactions between reources originating from different origins
+- Origin is combination of scheme, host and port
+- So `https://example.com` and `https://example.com/home` would be same origin
+- But `https://example.com` and `http://example.com` would not be
+- Means that our client cannot make requests to URLs that have different schemes, ports, or hosts from the one we are accessing currently
+  - Things like redirects, links, form submissions etc are usually allowed
+
+### Session hijacking ###
+As we've seen, session IDs are typically stored as normal strings stored inside a cookie on the client side, sent to the server with eqch request
+- If a hacker intercepts one of these requests, they could access a session without us knowing
+- This could allow them access to our account login without needing to know our information
+
+**Countermeausres**
+- Ask for reauthentication when accessing sensitive info, like charging a credit card, resetting password etc.
+  - This will reset the session, and typically ask the user to enter their password again when trying to access this info
+- Expiration time on sessions - This limits the time the hacker will have before the session is reset
+- Use HTTPS - This encrypts the requests/responses, and minimizes the changes a hacker can get the session ID
+
+### Cross-site scripting XSS ###
+This happens when you allow users to input HTML or JS that ends up being dipslayed by the site directly
+- An example is submitting text using a `<textarea>` in HTML, thus sending it to the server
+- If this is for a comment on the page, for example, the updated HTML for the page will contain it
+- If the server does not do some type of sanitation, the code will be injected into the page contents and be served to the client
+
+**Countermeasures**
+- Sanitize user input e.g get rid of all script tags, or disallow HTML and JS input altogether
+- Escape all user input data before displaying it (display code as plain text instead)
+  - e.g `<p>Hello World!<\p>` --> `&lt;p&gt;Hello World!&lt;\p&gt;`
