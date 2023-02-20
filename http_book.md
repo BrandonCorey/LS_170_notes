@@ -226,7 +226,7 @@ Retricts certain interactions between resources originating from different origi
 - But `https://example.com` and `http://example.com` would not be
 - Means that our client cannot make requests to URLs that have different schemes, ports, or hosts from the one we are accessing currently
   - Things like redirects, links, form submissions etc are usually allowed
-  - Special headers must be included in the server response to allow for these CORS requests to be executed e.g `Access-Control-Allow-Origin: `
+  - Special headers must be included in the server response to allow for these CORS requests to be executed e.g `Access-Control-Allow-Origin: <URL>`
 
 ### Session hijacking ###
 As we've seen, session IDs are typically stored as normal strings stored inside a cookie on the client side, sent to the server with eqch request
