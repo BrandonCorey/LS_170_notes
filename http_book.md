@@ -78,6 +78,8 @@ Note: Safe characters include all alphanumeric + `$-_.+!'()",`
 - Browsers will automatically make HTTP requests to resources referenced any other requests
   - HTTP tools or the command line `curl` command will not make these additional requests
 
+The two fields **required** in an HTTP request are: `Method` and `Path`
+
 To make a request from the command line:
 ```
 curl -X <method> <url> -m 30 -v
@@ -218,12 +220,13 @@ A HTTP protocl where all request/responses are encrypted before being transporte
 - Use certificates to communicate with servers and exchange security keys before encryption
 
 ### Same-origin Policy ###
-Retricts certain interactions between reources originating from different origins
+Retricts certain interactions between resources originating from different origins
 - Origin is combination of scheme, host and port
 - So `https://example.com` and `https://example.com/home` would be same origin
 - But `https://example.com` and `http://example.com` would not be
 - Means that our client cannot make requests to URLs that have different schemes, ports, or hosts from the one we are accessing currently
   - Things like redirects, links, form submissions etc are usually allowed
+  - Special headers must be included in the server response to allow for these CORS requests to be executed e.g `Access-Control-Allow-Origin: `
 
 ### Session hijacking ###
 As we've seen, session IDs are typically stored as normal strings stored inside a cookie on the client side, sent to the server with eqch request
