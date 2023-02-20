@@ -35,3 +35,12 @@ A stateless protocol is one that is designed in a way where each request/respons
 - The request/response pair is completely unaware of all others
 - Is easier to use and consumes less resources as the server does not need to hang on to state between requests
   - If a requests breaks, the server does not have to do any cleanup
+
+## URL ##
+Uniform Resource Locator (URL) is an address that can be used to access resources on the web
+Given: `http://www.example.com:88/home?item=book`
+1. scheme - first part of the url, commonly `http`, `ftp`, `mailto`, or `git`. Sometimes used to indicate which protocol to use to access the resource
+2. host - where the resource is hoisted e.g `www.example.com`
+3. port - (optional) port number to be provided if you don't want to use the defualt one e.g `88`
+4. path - (optional) local resourece being requested e.g `home`
+5. query string - (optional) made up of query parameters to send data to the server e.g `?item=book`
