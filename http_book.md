@@ -55,6 +55,7 @@ Give: `http://www.example.com?search=ruby+on+rails&results=10`
 - `search=javascript` - This is a paramater name/value pair
 - `&` - Reserved character for adding more parameters to query string
 - `+` - Represents a space character within a query string
+  - Can also use `%20` 
 
 - Because query strings can only be passed through the URL, they can only be used in HTTP GET requests
 - The name/value pairs are visible in the URL, so sensitive info cannot be passed to server using them
