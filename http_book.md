@@ -48,10 +48,11 @@ Given: `http://www.example.com:88/home?item=book`
 6. query string - (optional) made up of query parameters to send data to the server e.g `?item=book`
 
 ### Query strings ###
-Give: `http://www.example.com?search=ruby&results=10`
+Give: `http://www.example.com?search=ruby+on+rails&results=10`
 - `?` - Reserved character that marks start of query string
 - `search=javascript` - This is a paramater name/value pair
 - `&` - Reserved character for adding more parameters to query string
+- `+` - Represents a space character within a query string
 
 - Because query strings can only be passed through the URL, they can only be used in HTTP GET requests
 - The name/value pairs are visible in the URL, so sensitive info cannot be passed to server using them
