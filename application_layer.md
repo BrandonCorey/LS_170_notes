@@ -24,6 +24,7 @@ Note: The original vision of the web was more akin to something like wikipedia, 
 When we zoom in on the server, there are two main parts:
 - web server
 - appliaction server
+  - Note that these are high level terms, and a "server" may consist of many, many computers
 
 ### web server ###
 A server that typically responds to requests for static assets (files, images, css, javascripts) etc.
