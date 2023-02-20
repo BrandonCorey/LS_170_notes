@@ -162,3 +162,45 @@ Offer additional information about the resource being sent back. The most common
 - `Conent-Type` - The type of data the resonse contains e.g `ContentType:text/html; charset=UTF-8`
 
 Once again, do not need to memorize them
+
+## Stateful web apps ##
+HTTP is a stateless protocol. The server does not hang onto state between requests/reponse cycles
+- Each request/response is not aware of any others made
+- This can make it difficult for developers to build stateful web applications
+
+### A stateful app ###
+Developers are able to use different tricks to give the appearance of a stateful app e.g You log into a website and stay logged in 
+- Server can send a unique token to the client
+  - The client can then append this token to all of its requests to get a modified response (i.e a logged in web page)
+  - This token is called the **Session Identifier** (Session ID)
+  - We can then display a faux persistant view in the client between page refreshes
+
+**Downsides**
+Server must work very hard to simulate a stateful experience. On every request, the server must:
+- Inspect the request to see if it contains a session ID
+- Server must check that the session ID is still valid
+  - Server needs rules for Session ID expiration
+  - Server needs a way to store session data
+  - Server needs to retrieve session data based on ID
+  - Needs to recreate the state (e.g build the HTML) from session data and sent it back to client
+
+### Cookies ###
+A common way to store session information in the client. Most browsers have cookies enabled by default
+- A piece of data that's sent from the server and stored in the client during request/response cycle
+  - Small file that contains session information (including, but nost limited to Session ID)
+  - Chrome inspector groups cookies by domain name
+- Does not contain session data, that is stored on the server. Cookie only stores info to identify the session
+- `set-cookie` - Reponse header that adds cookie data to response for client to store
+- `cookie` - Request header that uses cookie to identify the session
+- Can also find a `Cookies` dropdown menu on the left side of the Inspector in chrome under `Applications`
+- Sessions typically expire in a relatively short period of time
+  - Certain actions will also deliberatly delete the session ID from the cookie (like logging out of a website)
+
+### AJAX ###
+Asynchronous JavaScript and XML
+- Allows browsers to issue requests and process reponses without a full page refresh
+- This is a lot less expensive as HTML does not need to be regnerated upon every HTTP request
+- Requests are sent as normal, reponses are sent as normal, but each response is processed by a server side callback function
+  - The callback is triggered when the response is returned, and is responsible for updating the HTML
+
+
