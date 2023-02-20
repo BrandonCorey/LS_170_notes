@@ -124,3 +124,41 @@ Allow the client and the server to send additional information during the HTTP r
 
 Don't bother memorizing the headers
 
+## Processing Requests ##
+### Status code ###
+Three digit number that the server sends back after recieivng a request signifiying the status of the request
+- `status text` id splayed next to the `status code` and provides a description of the code
+- Can be found in the "Status" section of the chrome inspector
+
+### Common Codes ###
+- `200` --> `OK` - The request was handled successfully
+- `302` --> `Found` - The requested resource has changed temporarily. Usually results in a redirect
+- `404` --> `Not Found` - The requested resource cannot be found
+- `500` --> `Internal Server Error` - The server has encountered a generic error
+
+**These are codes that should probably be memorized**
+
+### 302 Found ###
+A resource has been moved, and the request is rerouted to a new URL
+- This is called a `redirect`
+- the browser _knows_ the resource has been moved, and will automatically follow the new re-routed URL in the "Location" response header
+- Response may also contain a `return_to` parameter in its "Location" if you are being redirected to fill out information,, and intended to be redirected back after
+
+ex) You try to access a webpage that requires the user to be logged in --> reponse `Location` will contain a URL to the sign in page and the browser will automatically issue a `GET` request for that page
+
+### 404 Not Found ###
+This is returned as a response when the server cannot locate the resource the is being requested
+
+### 500 Internal Server Error ###
+This is returned when something went wrong on the server side of things
+- This is generic and could mean a wide range of things happened
+- This is something that needs to be deugged by those who have access to the server
+
+### Respone Headers ###
+Offer additional information about the resource being sent back. The most common are:
+- `Conent-Encoding` - The type of encoding used on the data e.g `Content-Encoding: gzip`
+- `Server` - Name of the server e.g `Server:thin 1.5.0 codename Knife
+- `Location` - Notify client of new resouce location e.g `Location:https://www.github.com/login`
+- `Conent-Type` - The type of data the resonse contains e.g `ContentType:text/html; charset=UTF-8`
+
+Once again, do not need to memorize them
