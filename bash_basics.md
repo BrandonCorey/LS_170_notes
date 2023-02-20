@@ -104,6 +104,7 @@ done
 
 ### functions ###
 Function definitions refer to passed arugments based on their positions
+- Can reference them using numbers to represent position (starting at 1)
 ```bash
 #!/usr/bin/bash
 
