@@ -33,6 +33,7 @@ chmod +x hello_world.sh
 ```
 ### Conditionals ###
 We can use `if` and `case` statements in Bash to work with conditional logic. Syntax:
+- Brackets can be omitted if strictly evaluating a boolean instead of a condition
 ```
 if [[ <condition> ]]
 then
@@ -45,3 +46,21 @@ then
   echo 'True'
 fi
 ```
+```bash
+#!/usr/bin/bash
+
+number=10
+
+if [[ $number -lt 20 ]]
+then
+  echo 'Number is less than 20'
+elif [[ $number -gt 20 ]]
+then
+  echo 'Number is greater than 20!'
+else
+  echo 'Number is equal to 20'
+fi
+```
+
+![image](https://user-images.githubusercontent.com/93304067/220205742-cede10c1-f0ab-45c9-8401-0087318b463b.png)
+
