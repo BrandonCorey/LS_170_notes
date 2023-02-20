@@ -66,3 +66,34 @@ Replaces reserved or unsafe ASCII characters with a `%` symbol followed by UTF-8
 
 Note: Safe characters include all alphanumeric + `$-_.+!'()",`
 
+# HTTP #
+## Making requests ##
+- Can view HTTP requests to server in your browser using chrome dev tools
+  - Open inspector --> Network
+  - If you click on a reponse, you can view the headers, a preview, the raw response, cookies, and timing
+- Browsers will automatically make HTTP requests to resources referenced any other requests
+  - HTTP tools or the command line `curl` command will not make these additional requests
+
+To make a request from the command line:
+```
+curl -X <method> <url> -m 30 -v
+```
+ - `-X` - Used to denote which HTTP method to use
+ - `-m` - How long should we wait for response (max time)
+ - `-v` - verbose, give HTTP details (not just raw response)
+
+## Request Methods ##
+Two most common HTTP request methods are `GET` and `POST`
+- `GET` - Used to retrieve information from the server (most common)
+- `POST` - Used to send information to the server
+
+Can view these methods and status of the requests under the "Network" section on the inspector as well
+
+### GET requests ###
+These are intiated by either clicking or link or entering something in the address bar via the browser
+- Used to retrieve information from the server (most common)
+- Resposnse can be anything, but if its HTML, your browser will automatically issue `GET` requests to any other resources references in the HTML
+- These means entering a URL in an address bar initiates a `GET` request
+  - This is the default behavior of a link as well (issue a `GET` request to the URL)
+
+Can make request using this in the terminal: `curl -X GET <URL> -m 30 -v`
