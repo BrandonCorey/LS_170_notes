@@ -88,3 +88,9 @@ Downsides:
 - Implementations for data management must be developed, as it is not built in like HTTP
 - Might also need to implement transport layer best practices like flow control and congestion avoidance
 - Might also need to implement some type of security similar to TLS
+
+## Notes on P2P (peer-to-peer) architecture ##
+There many be used cases where P2P architecture is better than client to server
+- P2P can provide lower latency as the connection between hosts does not need to be routed through a third party
+- This could be beneficial for latency sensitive applications like video calling apps
+- In these configs, each client acts as a **Node** instead, effectively acting as a client and a server all in one
