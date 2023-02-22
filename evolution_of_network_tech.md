@@ -1,0 +1,21 @@
+## Past present and future ##
+- 0.9:
+  - HTTP requests were a single line, without headers or a body. Also, `GET` was the only method and the `path` was to a resource of the server
+- 1.0:
+  - Methods were added, such as `POST` and `HEAD`
+  - Request lines became more robust, `path` could not be an absolute URI instead of jsut a local file path on the server
+  - Responses included a status line (code + message)
+  - Headers were introduced (introduced meta data)
+    - `Content-Type` was an important addition, as the content other than HTML was becomming commonplace on the internet
+
+- 1.1:
+  - This became the first official standard version of HTTP
+  - Improved performance dramatically (introduced `keep-alive` connections) so that 3 way handshakes did not have to be reinitiated after each request
+    - Persistent connections made it possible to "pipe-line" HTTP messages in the transport layer
+    - This is because previously, a single HTTP request would be sent over a single TCP connection
+  - Also introduced cache control mechanisms for the server
+  - Also added more methods --> `PUT`, `DELETE`, `TRACE`, and `OPTIONS`
+- 2.0:
+  - Improved performance again through the use of multiplexing
+  - 1.1 used pipelining for HTTP requests, but 2.0 introduced multiplexing of TCP requests
+  - This means the messages are sent in parallel, instead of having to be sent in order (gets rid of HOL latency)
