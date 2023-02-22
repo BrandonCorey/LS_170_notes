@@ -8,3 +8,5 @@
 - In HTTP/1.0, the end of the messsage is indicated by a `Content-Length` header (length of message in bytes)
 
 - The Content-Length header can be used to indicate the size of the body. This can help determine where the HTTP message should end.
+
+- The request line of an HTTP request is the first line with the method name e.g `GET /home HTTP/1.1`
