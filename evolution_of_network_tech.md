@@ -93,4 +93,6 @@ Downsides:
 There many be used cases where P2P architecture is better than client to server
 - P2P can provide lower latency as the connection between hosts does not need to be routed through a third party
 - This could be beneficial for latency sensitive applications like video calling apps
+- Also less overhead in the sense that a server does not need to be set up to handle requests from clients
+- Also means that if a node goes down, the system will go on as long as other peers are still serving data to each other
 - In these configs, each client acts as a **Node** instead, effectively acting as a client and a server all in one
