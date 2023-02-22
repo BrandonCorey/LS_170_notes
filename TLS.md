@@ -44,7 +44,7 @@ CA (certificate authorities) are trustworthy sources of digital certificates
 ## TLS encapsulation ##
 TLS can be thought of as a protocol operating between HTTP and TCP
 - When transporting application data, TLS encapsulates the data in the same way as other protocl units
-- PDU from application is encpaulsated in data payload of TLS
+- PDU from application is encpaulsated in data payload of TLS (called a record)
 - Header fields include content type, TLS version, bit length, message authentication code, and padding
 
 ### MAC (Message authentication code)
