@@ -180,6 +180,7 @@ Developers are able to use different tricks to give the appearance of a stateful
 - Server can send a unique token to the client
   - The client can then append this token to all of its requests to get a modified response (i.e a logged in web page)
   - This token is called the **Session Identifier** (Session ID)
+    - A **Session** is a period of interction between auser and a web program
   - We can then display a faux persistant view in the client between page refreshes
 
 **Downsides**
