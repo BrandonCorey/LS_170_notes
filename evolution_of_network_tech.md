@@ -1,4 +1,5 @@
 ## Past present and future ##
+### HTTP ###
 - 0.9:
   - HTTP requests were a single line, without headers or a body. Also, `GET` was the only method and the `path` was to a resource of the server
 - 1.0:
@@ -19,3 +20,8 @@
   - Improved performance again through the use of multiplexing
   - 1.1 used pipelining for HTTP requests, but 2.0 introduced multiplexing of TCP requests
   - This means the messages are sent in parallel, instead of having to be sent in order (gets rid of HOL latency)
+  - Introduced compression of headers (which typically make up a large part of the request or response)
+- 3.0
+  - In the works as we speak
+  - Aims to eliminate the added layers needed to send secure messages (TCP + TLS)
+  - Will introduce a new protocol called QUIC that will aim to replace TCP and TLS
