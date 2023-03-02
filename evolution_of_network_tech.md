@@ -86,6 +86,8 @@ Allows a client and a server to establish a persistent TCP connection that allow
 
 Downsides:
 - Might also need to implement some type of security similar to TLS
+- Uses a persistant connection between client and server which can be resource intensive
+- Implementaiton of websocket can be more complex
 
 ## Notes on P2P (peer-to-peer) architecture ##
 There many be used cases where P2P architecture is better than client to server
