@@ -85,8 +85,6 @@ Allows a client and a server to establish a persistent TCP connection that allow
 - Is an unstructured, low latency, non-parsed, non-buffered connection
 
 Downsides:
-- Implementations for data management must be developed, as it is not built in like HTTP
-- Might also need to implement transport layer best practices like flow control and congestion avoidance
 - Might also need to implement some type of security similar to TLS
 
 ## Notes on P2P (peer-to-peer) architecture ##
